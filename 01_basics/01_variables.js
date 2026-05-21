@@ -1,28 +1,19 @@
-const accountId = 12345
-let accountEmail = "pallu123@gmail.com"
-var accountPassword = "1234"
+const accountId = 244455
+let accountEmail = "pallu@gmail.com"
+var accountPassword = "567897"
 accountCity = "patna"
+let accountState;
 
-// let accountState;
-// eska output aygea undefined q ki variables blank hai 
-let accountState = "p";
+// const accountId = 2 not allowed  Note :- const deifine krne ka bad hm  varibal ko change nhi kr skte hai 
+// accountEmail = "chanchal@gmail.com"
+// accountPassword = "1234"
+accountCity = "sheikhpura"
+console.log(accountCity);
 
-
-
-
-
-// accountId = 2 not allowed
-
-accountEmail = "apna234@gmail.com"
-
-accountPassword = "232323"
-accountCity = " delhi"
-
-// console.log(accountId);
+        //    NOTE :- 
+        //    prefer not to us var
+        //    because of issue in block scope and functional scope
 
 
-// prefer not to us var
-// because of issue in block scope and funcational scope
 
-
-console.table([accountId,accountEmail,accountPassword,accountCity,accountState])
+console.table([accountId,accountEmail,accountPassword,accountCity,accountState]);
