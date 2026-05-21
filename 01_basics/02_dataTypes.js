@@ -16,7 +16,8 @@ console.log("pallu");
 // JavaScript me Data Types 2 main categories me hote hain 👇
 
 // 🔷 1. Primitive Data Types (Basic types)
-
+ 
+// kisi variables ka type jan ne ke liye hm us krenge console.log (typeof name)
 
 let name = "pallu";  // String → text
 let age = 22;       // Number → number
