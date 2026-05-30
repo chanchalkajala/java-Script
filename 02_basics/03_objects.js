@@ -33,10 +33,26 @@ const jsUser = {
 
 // esko acces kaise kre 
 
-console.log(jsUser.email);
-console.log(jsUser["email"]);
-console.log(jsUser["full name"]);
-console.log(jsUser[mySym]);
+// console.log(jsUser.email);
+// console.log(jsUser["email"]);
+// console.log(jsUser["full name"]);
+// console.log(jsUser[mySym]);
 
 // *****************
+
+jsUser.email = "kumar@gmail.com";
+// Object.freeze(jsUser)
+jsUser.email = "maya@gmail.com";
+// console.log(jsUser);
+
+jsUser.greeting = function(){
+    console.log("hello pallu");
+}
+
+jsUser.greetingTwo = function () {
+    console.log(`hello pallu ${this.name}`); // string interpolation
+}
+
+console.log(jsUser.greeting());
+console.log(jsUser.greetingTwo());
 
