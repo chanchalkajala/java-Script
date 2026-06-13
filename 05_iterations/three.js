@@ -36,11 +36,12 @@ for (const [key, value] of map){
 // object loop
 
 const myObject = {
-    'game1': 'NFS',
-    'game2': 'spiderman'
+    game1: 'NFS',
+    game2: 'spiderman'
 
 }
 
-for (const [key, value] of myObject) {
-    console.log(key, ':-', value)
-}
+// for (const [key, value] of myObject) {
+//     console.log(key, ':-', value)
+// }
+
