@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+
+<body style="background-color: #212121; color: #fff;">
+
+</body>
+<script>
+    const div = document.createElement("div");
+
+    console.log(div);
+    div.className = "main"
+    div.id = Math.round (Math.random() * 10 + 1)
+
+    div.setAttribute('title', "generated title")
+    div.style.backgroundColor = "green"
+    div.style.padding = "12px"
+
+    div.innerText = "chai or code"
+
+const addText = document.createTextNode("chai or code");
+div.appendChild(addText)
+
+div.appendChild(addText);
+document.body.appendChild(div);
+
+
+
+
+
+
+</script>
+
+</html>
+
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++ inter view line
+ 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+
+<body style="background-color: #212121; color: #fff;">
+
+</body>
+<script>
+    const div = document.createElement("div");
+
+    console.log(div);
+    div.className = "main"
+    div.id = Math.round (Math.random() * 10 + 1)
+
+    div.setAttribute('title', "generated title")
+    div.style.backgroundColor = "green"
+    div.style.padding = "12px"
+
+    div.innerText = "chai or code"
+
+const addText = document.createTextNode("chai or code");
+div.appendChild(addText)
+
+div.appendChild(addText);
+document.body.appendChild(div);
+
+
+
+
+
+
+</script>
+
+</html>
+
+Important notes (interview + practice ke liye):
+
+createElement() se banaya gaya element sirf memory me hota hai — jab tak appendChild/append se DOM me na daalo, screen pe nahi dikhega.
+className vs classList → className pura string overwrite karta hai, classList.add() sirf ek class add karta hai (safer for multiple classes).
+setAttribute(name, value) → koi bhi custom ya HTML attribute set karne ke liye generic tarika.
+createTextNode() → ek plain text node banata hai (HTML tags parse nahi karta), innerText/innerHTML se alag hai.
+⚠️ Bug/Gotcha yahan: div.appendChild(addText) do baar likha hai. Ek hi node ko dobara appendChild karne se wo duplicate nahi hota, balki apni purani jagah se hatke naye position pe move ho jata hai (DOM me ek node ek hi jagah exist kar sakta hai).
+Result: div ke andar sirf ek hi baar "chai or code" text node dikhega (innerText wala text text node se replace ho chuka hoga kyunki text node append karne se div ka content update ho gaya).
+
+
+
+
+-->
