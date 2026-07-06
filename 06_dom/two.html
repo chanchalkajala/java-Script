@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM | creat a new element</title>
 </head>
+
 <body style="background-color: #212121; color: #fff;">
     <div class="parent">
         <div class="day">Monday</div>
@@ -15,12 +17,111 @@
 </body>
 <script>
     const parent = document.querySelector('.parent')
-    console.log(parent);
-    console.log(parent.children[1].innerHTML);
-    console.log(parent.children);
+    // console.log(parent);
+    // console.log(parent.children[1].innerHTML);
+    // console.log(parent.children);
 
 
-    for
+
+    // for (let i = 0; i < parent.children.length; i++) {
+    //     console.log(parent.children[i].innerHTML);
+
+    // }
+
+    // parent.children[1].style.color = "orange"
+    // console.log(parent.firstElementChild);
+    // console.log(parent.lastElementChild);
+
+
+const dayOne = document.querySelector('.day')
+// console.log(dayOne);
+// console.log(dayOne.parentElement);
+// console.log(dayOne.nextElementSibling);
+
+
+console.log("NODES:", parent.childNodes);
+
+
+
 
 </script>
+
 </html>
+
+
+<!-- ++++++++++++++++++++++++++++  interview line niche hai 
+ 
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | creat a new element</title>
+</head>
+
+<body style="background-color: #212121; color: #fff;">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wendnesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+    const parent = document.querySelector('.parent')          // .parent wali div select ki (pehla match)
+
+    console.log(parent);                                      // pura parent element dikhayega
+    console.log(parent.children[1].innerHTML);                 // sirf elements ki list, index 1 = "Tuesday"
+    console.log(parent.children);                               // HTMLCollection (sirf element nodes, live)
+
+
+
+    for (let i = 0; i < parent.children.length; i++) {          // children array-like hai, normal loop chalega
+        console.log(parent.children[i].innerHTML);              // har ek day ka text print
+    }
+
+
+
+    parent.children[1].style.color = "orange"                   // inline CSS change (Tuesday orange color)
+
+    console.log(parent.firstElementChild);                      // pehla element child -> Monday
+    console.log(parent.lastElementChild);                        // aakhri element child -> Thursday
+
+
+    const dayOne = document.querySelector('.day')                // sabse pehla .day class wala element (Monday)
+    console.log(dayOne);
+    console.log(dayOne.parentElement);                            // dayOne ka parent -> .parent div
+    console.log(dayOne.nextElementSibling);                       // dayOne ke baad wala element -> Tuesday
+
+
+    console.log("NODES:", parent.childNodes);                    // sabhi nodes: elements + text nodes (whitespace bhi count)
+
+</script>
+
+</html>
+
+Quick recap (interview ke liye yaad rakhna):
+
+children → sirf elements, childNodes → elements + text (whitespace bhi)
+firstElementChild/lastElementChild → hamesha element milega (text node nahi)
+parentElement → parent element milta hai
+nextElementSibling → next element (text node skip ho jata hai)
+style.property → hamesha camelCase (color, backgroundColor etc.)
+
+
+
+
+
+
+
+
+
+
+
+-->
+
+
+ 
