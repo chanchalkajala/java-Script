@@ -3,103 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>html events</title>
+    <title>htnml Events </title>
 </head>
-<body>
-    <style>
-    body{
-        background-color: #212121;
-        color: #fff;
-    }
-  #images {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 0;
-    margin: 20px 0;
-  }
-
-  #images li {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  #images li:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  }
-
-  #images img {
-    width: 200px;
-    height: 150px;
-    object-fit: cover;
-    display: block;
-    transition: opacity 0.3s ease;
-  }
-
-  #images img:hover {
-    opacity: 0.85;
-  }
-
-  #images a {
-    text-decoration: none;
-    color: #212121;
-  }
-
-  /* Google link specific styling */
-  #google-link {
-    position: relative;
-  }
-
-  #google-link .caption {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    text-align: center;
-    padding: 10px 0;
-    font-weight: bold;
-    background: linear-gradient(90deg, #4285F4, #EA4335, #FBBC05, #34A853);
-    color: #fff;
-  }
-
-  #google {
-    filter: grayscale(20%);
-    transition: filter 0.3s ease;
-  }
-
-  #google-link:hover #google {
-    filter: grayscale(0%);
-  }
-
-  #google-link:hover .caption {
-    letter-spacing: 1px;
-  }
-</style>
-
-<h2>Amazing Image</h2>
-<div>
-    <ul id="images">
-        <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
-        <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="japan"></li>
-        <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="river"></li>
-        <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
-        <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="prayer"></li>
-        <li>
-            <a id="google-link" href="https://www.google.com" target="_blank">
-                <img width="200px" id="google" src="https://images.pexels.com/photos/2977565/pexels-photo-2977565.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="google">
-                <span class="caption">Visit Google</span>
-            </a>
-        </li>
-    </ul>
-</div>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
 </body>
 <script>
-// document.getElementById('owl').onclick = function(){
+    
+    // document.getElementById('owl').onclick = function(){
 //     alert("owl clicked")
 // }
 //attachEvent()
@@ -110,15 +31,46 @@
 // target, toElement, srcElement, currentTarget,
 //clientx,clienty,screeny
 // altKey, ctrlkye, shiftkey,keycode
-document.getElementById('images').addEventListener('click', function(e){
-  console.log("clicked inside the ul")
+
+// notes js 
+// document.getElementById('images').addEventListener('click', function(e){
+//   console.log("clicked inside the ul")
+// },false)
+
+// document.getElementById('owl').addEventListener('click', function(e){
+//   console.log(" owl clicked")
+//   e.stopImmediatePropagation()
+// },false)
+
+// document.getElementById('google-link').addEventListener('click', function (e) {
+//   e.preventDefault();
+//   e.stopPropagation()
+//   console.log("google clicked");
+// });
+
+
+document.querySelector('#images').addEventListener('click', function(e){
+  console.log(e.target.tagName);
+  if(e.target.tagName === 'IMG'){
+    console.log(e.target.id);
+   let removeIt = e.target.parentNode
+    removeIt.remove()
+  }
+
+ 
+
+
+
+
+
+
+  // removeIt.parentNode.removeChild(removeIt)
+
+  
 },false)
-
-document.getElementById('owl').addEventListener('click', function(e){
-  console.log(" owl clicked")
-  e.stopImmediatePropagation()
-},false)
-
-
+    
+   
+    
+  
 </script>
 </html>
