@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async js</title>
+</head>
+<style>
+    #start {
+        background-color: green;
+        color: #fff;
+    }
+    #stop {
+        background-color: red;
+        color: #fff;
+    }
+</style>
+<body>
+    <h1>chai aur javaScript</h1>
+    <button id="start">START</button>
+    <button id="stop">STOP</button>
+</body>
+<script>
+    const sayDate = function (str) {
+        console.log(str, Date.now());
+    };
+
+    const changeHeading = function () {
+        document.querySelector('h1').innerHTML = "best js language";
+    };
+
+    // dono IDs bahar define kiye taaki start/stop dono function inhe access kar sake
+    let intervalId;
+    let changeMe;
+
+    // Start dabane par hi interval aur timeout dono shuru honge
+    document.querySelector('#start').addEventListener('click', function () {
+        intervalId = setInterval(sayDate, 1000, "hi");
+        changeMe = setTimeout(changeHeading, 2000);
+        console.log("started");
+    });
+
+    // Stop dabane par dono band ho jayenge, jab tak start dobara na dabao
+    document.querySelector('#stop').addEventListener('click', function () {
+        clearInterval(intervalId);
+        clearTimeout(changeMe);
+        console.log("stopped");
+    });
+</script>
+</html>
