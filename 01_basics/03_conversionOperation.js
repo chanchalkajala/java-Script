@@ -1,59 +1,158 @@
-        // *************** converation******************
-  
-  
- // let score = "pallu"
+// ************************* Conversion Operation *************************
 
- //console.log(typeof score);
-  //console.log(typeof(score));
+let score = "pallu";
 
-// let valueInNumber = Number (score)
-// console.log(valueInNumber);
+console.log(score, typeof score);
+// Note:
+// score = "pallu"
+// typeof score => string
 
-// "3" => 33
-// "33abc" => NaN
-// true => 1; false => 0
+console.log(score + " kumar", typeof score);
+// Note:
+// String + String => Concatenate
+// Output => "pallu kumar"
 
-//let isLoggedIn = ""
+console.log(score - 3, typeof score);
+// Note:
+// String ko number me convert karne ki koshish hoti hai.
+// "pallu" number nahi hai.
+// Output => NaN
 
-// let bollenIsLoggedIn = Boolean(isLoggedIn);
-// console.log( bollenIsLoggedIn);
+console.log(score * 3, typeof score);
+// Note:
+// Invalid number conversion.
+// Output => NaN
 
-// 1 => true; 0 => false
-// "" => false
-// "pallu" => true
+console.log(score / 3, typeof score);
+// Note:
+// Output => NaN
 
-//******************* operation*****************************
+console.log(score % 3, typeof score);
+// Note:
+// Output => NaN
 
- let value = 3
- let negValue = -value
-   //console.log(negValue);
+console.log(score ** 3, typeof score);
+// Note:
+// Output => NaN
 
-   //******** string ko v jora ja skta hai jaise *******
+console.log(score++, typeof score);
+// Note:
+// String par increment lagane se NaN milta hai.
 
-   let str1 = "pallu";
-   let str2 = "chanchal";
-   let str3 = str1 + str2;
-  // console.log(str3);
+console.log(score--, typeof score);
+// Note:
+// String par decrement lagane se NaN milta hai.
 
-  // console.log("1" + 2);  //output => 12
-  // console.log(1 + 2);    //output => 3
-  // console.log(1 + "2");  //output => 12
-  // console.log("1" + 2 + 2); //output => 122
-  // console.log(1 + 2 + "4"); //output => 34
-  // console.log(1 + "2" + "4"); //output => ?
-  // console.log("1" + "2" + "4"); //output => ?
-  // console.log("1" + 2 + "4"); //output => ?
+console.log(typeof score);
+// Note:
+// Output => string
+
+let valueInNumber = Number(score);
+
+console.log(valueInNumber, typeof valueInNumber);
+// Note:
+// Number("pallu") => NaN
+// typeof NaN => number
+
+console.log(valueInNumber);
+// Note:
+// Output => NaN
 
 
-  // console.log(+true);   // output => 1
-  // console.log(true+);   // output => it is not allow
+// ************************************************************
+// ******************* Interview Important Notes ***************
+// ************************************************************
 
-  // console.log(+"");  // output => 0
+// 1. JavaScript me 2 types ke conversion hote hain:
+//    (i) Explicit Type Conversion
+//    (ii) Implicit Type Conversion (Type Coercion)
 
-  let gameCounter = 100;
-//   ++gameCounter;      esko bolte hai hm Prefix Increment bolte hain  Pehle value increase hoti hai
-// Phir value use hoti hai
+// 2. Number("3") => 3
+// 3. Number("33") => 33
+// 4. Number("33abc") => NaN
+// 5. Number("abc") => NaN
+// 6. Number("") => 0
+// 7. Number(" ") => 0
 
-    gameCounter++;    // esko bolte hai  Postfix Increment bolte hain  Pehle value use hoti hai Phir value increase hoti hai
+// 8. Number(true) => 1
+// 9. Number(false) => 0
 
-  console.log(gameCounter);
+// 10. Number(null) => 0
+// 11. Number(undefined) => NaN
+
+// 12. Boolean("") => false
+// 13. Boolean(" ") => true
+// 14. Boolean("Pallu") => true
+// 15. Boolean(0) => false
+// 16. Boolean(1) => true
+// 17. Boolean(null) => false
+// 18. Boolean(undefined) => false
+// 19. Boolean(NaN) => false
+
+// 20. String(123) => "123"
+
+// 21. typeof NaN => "number"   // Most Asked Interview Question
+
+// 22. "1" + 2 + 3 => "123"
+//     Kyuki pehla operand string hai, baaki sab string ban jate hain.
+
+// 23. 1 + 2 + "3" => "33"
+//     Pehle addition hota hai, fir string concatenation.
+
+// 24. +true => 1
+// 25. +false => 0
+// 26. +"" => 0
+// 27. +null => 0
+// 28. +undefined => NaN
+
+// 29. + operator:
+//     - Number + Number => Addition
+//     - String + String => Concatenation
+//     - Number + String => String Concatenation
+
+// 30. ++x (Pre Increment)
+//     Pehle increment hota hai, fir value use hoti hai.
+
+// 31. x++ (Post Increment)
+//     Pehle value use hoti hai, fir increment hota hai.
+
+// 32. NaN ka full form = Not a Number
+
+// 33. NaN == NaN => false
+
+// 34. isNaN("33abc") => true
+// 35. isNaN("33") => false
+
+// 36. Number.isNaN(NaN) => true
+// 37. Number.isNaN("NaN") => false
+
+// 38. JavaScript automatic type conversion ko Type Coercion bolte hain.
+
+// 39. Empty String ("") is Falsy Value.
+// 40. Non-Empty String ("Pallu") is Truthy Value.
+
+// ************* Frequently Asked Interview Questions *************
+
+// Q1. typeof NaN kya hota hai ?
+// Ans: number
+
+// Q2. Number(undefined) kya return karta hai ?
+// Ans: NaN
+
+// Q3. Number(null) kya return karta hai ?
+// Ans: 0
+
+// Q4. Boolean("") kya return karta hai ?
+// Ans: false
+
+// Q5. Boolean(" ") kya return karta hai ?
+// Ans: true
+
+// Q6. Difference between == and === ?
+// Ans:
+// ==  -> Value compare karta hai (Type Conversion karta hai)
+// === -> Value + Data Type dono compare karta hai.
+
+// Q7. Type Coercion kya hota hai ?
+// Ans:
+// JavaScript ka automatically ek data type ko dusre data type me convert karna.
