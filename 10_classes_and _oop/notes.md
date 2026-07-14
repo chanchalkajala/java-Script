@@ -22,3 +22,13 @@
  Encapsulation
  Inheritance
  Polymorphism
+
+
+
+
+## importent NOTE :- this ka us smjho jaine hmane 
+
+<!-- let myArray = [1,2,3]
+phir hmne ek or array bnaya jaise 
+let myArray2 = [1,2,3,5,6,5]
+esi hmko pta krna loop kis pe lagana hai -->
