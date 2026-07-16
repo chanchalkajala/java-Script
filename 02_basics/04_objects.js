@@ -1,230 +1,99 @@
-// singleton
-
-// const tinderUser = new Object();  // singleton object
-const tinderUser = {}  // non singleton object
-
-
-tinderUser.id = "1234abc",
-tinderUser.name = "pallu",
-tinderUser.isLoggedIn = false
-
-// console.log(tinderUser);
-
-// *************
-
-const regularUser = {
-    email: "chanchal@gmail.com",
-    fullname:{
-        userfullname:{
-            firstname: "pallu",
-            lastname: "kumar"
-        }
-    }
-}
-
-// console.log(regularUser.fullname.userfullname.firstname); 
-
-// **********
-
-const obj1 = {1: "a", 2: "b"};
-const obj2 = {3: "a", 4: "b"};
-const obj4 = {5: "a", 6: "b"};
-
-// const obj3 = {obj1, obj2}
-// const obj3 = Object.assign({}, obj1, obj2)
-const obj3 = {...obj1, ...obj2, ...obj4};
-// console.log(obj3);
-
-// *******
-
-const users = [
-    {
-        id: 1,
-        email: "maya@gmail.com"
-    },
-    {
-        id: 1,
-        email: "maya@gmail.com"
-    },
-    {
-        id: 1,
-        email: "maya@gmail.com"
-    },
-]
-
-users[1].email
-// console.log(tinderUser);
-
-// console.log(Object.keys(tinderUser));  // output deta type array 
-// console.log(Object.values(tinderUser));  
-// console.log(Object.entries(tinderUser));  // array ke ander array
-
-// console.log(tinderUser.hasOwnProperty(`isLoggedin`));
-
-// arrary ki Destructure hame khud padhna hai chatgpt se smjh ke ok 
-
-// object ki Destructure ***********
-
-const course = {
-    coursename: "js in hindi",
-    price: "999",
-    courseInstructor: "pallu"
-}
-
-// course.courseInstructor
-
-const {courseInstructor: instructor} = course // yeha pr Destructure hua hai  es name badl kr courseInstructor ye name kiya hai instructor hai eski hm bolte hai  Destructure ok
-
-console.log(instructor);
+/* ==========================================================
+   JAVASCRIPT OBJECTS — CLEAN PRACTICE NOTES
+   Step by step samjho aur khud terminal/browser console me
+   run karke practice karo (node file.js se run hoga)
+   ========================================================== */
 
 
-// ****** react ke bare me
+/* ------------------------------------------------------------
+   STEP 1: Object banane ke tarike
+------------------------------------------------------------ */
 
-// const navbar = ({company}) => {
+// Object literal (sabse common tarika)
+const tinderUser = {};   // ye "non-singleton" object hai
+// har baar {} likhoge to ek NAYA object banega
 
-// }
+// Object.create() se bhi object banta hai (singleton style)
+// const tinderUser2 = new Object();
 
-// navbar (company = "pallu")
+// Object me property add karna
+tinderUser.id = "1234abc";
+tinderUser.name = "pallu";
+tinderUser.isLoggedIn = false;
 
-// *****
-
-// {
-//     "name": "pallu",
-//     "coursename", "js in hindi",
-//     "price": "free class"
-// }
-
-[
-
-    {},
-    {},
-    {}
-]
+console.log("Step 1 -> tinderUser:", tinderUser);
 
 
-//  ************ eska niche ka code mera mn se hai studay ke liye
-
-
-// singleton
-
-// const tinderUser = new Object();  
-// singleton object banata hai
-
-const tinderUser = {};  
-// non-singleton object
-// object literal method
-
-// **********************
-
-// object me value add karna
-
-tinderUser.id = "1234abc";     
-// id add ki
-
-tinderUser.name = "pallu";     
-// name add ki
-
-tinderUser.isLoggedIn = false; 
-// boolean value add ki
-
-// console.log(tinderUser);
-
-// **********************
-
-// nested object
+/* ------------------------------------------------------------
+   STEP 2: Nested Object (object ke andar object)
+------------------------------------------------------------ */
 
 const regularUser = {
     email: "chanchal@gmail.com",
-
-    fullname: {                 // nested object
+    fullname: {                    // nested object
         userfullname: {
-
             firstname: "pallu",
             lastname: "kumar"
-
         }
     }
 };
 
-// nested object access
-// console.log(regularUser.fullname.userfullname.firstname);
+// Access karne ke liye dot (.) notation chain karo
+console.log("Step 2 -> firstname:", regularUser.fullname.userfullname.firstname);
 
-// **********************
 
-// object merge
+/* ------------------------------------------------------------
+   STEP 3: Objects ko merge karna (Spread Operator)
+------------------------------------------------------------ */
 
-const obj1 = {1: "a", 2: "b"};
-const obj2 = {3: "a", 4: "b"};
-const obj4 = {5: "a", 6: "b"};
+const obj1 = { 1: "a", 2: "b" };
+const obj2 = { 3: "a", 4: "b" };
+const obj4 = { 5: "a", 6: "b" };
 
-// const obj3 = {obj1, obj2}
-// ye object ke andar object bana deta
+// GALAT: { obj1, obj2 } likhne se object KE ANDAR object ban jayega
+// SAHI tarika 1: Object.assign()
+const merged1 = Object.assign({}, obj1, obj2, obj4);
 
-// Object.assign method
-// const obj3 = Object.assign({}, obj1, obj2);
+// SAHI tarika 2 (modern, React me sabse zyada use hota): spread operator
+const merged2 = { ...obj1, ...obj2, ...obj4 };
 
-// spread operator
-const obj3 = {...obj1, ...obj2, ...obj4};
+console.log("Step 3 -> merged (spread):", merged2);
 
-// console.log(obj3);
 
-// spread operator React aur modern JS me bahut use hota hai
-
-// **********************
-
-// array ke andar objects
+/* ------------------------------------------------------------
+   STEP 4: Array of Objects (real-world API jaisa data)
+------------------------------------------------------------ */
 
 const users = [
-    {
-        id: 1,
-        email: "maya@gmail.com"
-    },
-    {
-        id: 2,
-        email: "kumar@gmail.com"
-    },
-    {
-        id: 3,
-        email: "pallu@gmail.com"
-    },
+    { id: 1, email: "maya@gmail.com" },
+    { id: 2, email: "kumar@gmail.com" },
+    { id: 3, email: "pallu@gmail.com" },
 ];
 
-// array ke object access
-users[1].email;
+// Array index se object nikalo, fir uski property access karo
+console.log("Step 4 -> users[1].email:", users[1].email);
 
-// **********************
 
-// Object methods
+/* ------------------------------------------------------------
+   STEP 5: Object ke built-in Methods
+------------------------------------------------------------ */
 
-// console.log(tinderUser);
+console.log("Step 5 -> Object.keys():", Object.keys(tinderUser));
+// output: array of keys -> ['id', 'name', 'isLoggedIn']
 
-// Object.keys()
-// object ki sari keys deta hai
-// output ka type array hota hai
+console.log("Step 5 -> Object.values():", Object.values(tinderUser));
+// output: array of values -> ['1234abc', 'pallu', false]
 
-// console.log(Object.keys(tinderUser));
+console.log("Step 5 -> Object.entries():", Object.entries(tinderUser));
+// output: array ke andar [key, value] pairs ka array
 
-// Object.values()
-// sari values deta hai
+console.log("Step 5 -> hasOwnProperty:", tinderUser.hasOwnProperty("isLoggedIn"));
+// output: true / false -> key exist karti hai ya nahi ye check karta hai
 
-// console.log(Object.values(tinderUser));
 
-// Object.entries()
-// array ke andar array return karta hai
-
-// console.log(Object.entries(tinderUser));
-
-// hasOwnProperty()
-// check karta hai key exist karti hai ya nahi
-
-// console.log(tinderUser.hasOwnProperty("isLoggedIn"));
-
-// **********************
-
-// array destructure khud practice karna 🙂
-
-// object destructuring
-// **********************
+/* ------------------------------------------------------------
+   STEP 6: Object Destructuring
+------------------------------------------------------------ */
 
 const course = {
     coursename: "js in hindi",
@@ -232,73 +101,54 @@ const course = {
     courseInstructor: "pallu"
 };
 
-// normal access
+// Normal access:
 // course.courseInstructor
 
-// destructuring
+// Destructuring + renaming (courseInstructor -> instructor)
 const { courseInstructor: instructor } = course;
+console.log("Step 6 -> instructor:", instructor);
 
-// yaha courseInstructor ka naam chhota karke
-// instructor kar diya gaya hai
+// Bina rename kiye normal destructuring:
+const { coursename, price } = course;
+console.log("Step 6 -> coursename, price:", coursename, price);
 
-console.log(instructor);
 
-// **********************
-// React Notes
-// **********************
+/* ------------------------------------------------------------
+   STEP 7: React me destructuring kaise use hota hai (concept)
+------------------------------------------------------------ */
 
-// React me props destructuring bahut use hota hai
-
-// const navbar = ({company}) => {
-
+// Props seedha destructure kar lete hain function parameter me hi:
+// const Navbar = ({ company }) => {
+//     return <h1>{company}</h1>
 // }
+// Navbar({ company: "pallu" })
 
-// yaha direct props destructure hua hai
 
-// navbar(company = "pallu")
+/* ------------------------------------------------------------
+   STEP 8: JSON format (API data isi tarah aata hai)
+------------------------------------------------------------ */
 
-// **********************
-// JSON format
-// **********************
-
-// API data mostly JSON format me aata hai
-
+// JSON me keys hamesha double-quotes me hoti hain:
 // {
 //     "name": "pallu",
 //     "coursename": "js in hindi",
 //     "price": "free class"
 // }
 
-// array of objects
+// Array of empty objects (structure practice ke liye):
+const arrayOfObjects = [{}, {}, {}];
 
-[
-    {},
-    {},
-    {}
-]
 
-// **********************
-// Interview Notes
-// **********************
-
-// 1. Object banane ke 2 tarike
-//    - Object.create()
-//    - Object literals {}
-
-// 2. Nested object ko . notation se access karte hain
-
-// 3. Spread operator (...) object merge me use hota hai
-
-// 4. Object.keys() array return karta hai
-
-// 5. Object.entries() array inside array return karta hai
-
-// 6. hasOwnProperty() key check karta hai
-
-// 7. Destructuring React aur API handling me bahut important hai
-
-// 8. JSON me keys aur values mostly string me hoti hain
-
-// 9. Spread operator interview me frequently pucha jata hai
-
-// 10. Object.assign() aur spread operator dono object merge karte hain
+/* ==========================================================
+   QUICK INTERVIEW REVISION POINTS
+   ==========================================================
+   1. Object banane ke 2 tarike -> {} literal, Object.create()
+   2. Nested object -> dot (.) notation se access hota hai
+   3. Spread (...) aur Object.assign() -> dono object merge karte hain
+   4. Object.keys()    -> array of keys
+   5. Object.values()  -> array of values
+   6. Object.entries() -> array of [key, value] pairs
+   7. hasOwnProperty() -> key check karta hai (true/false)
+   8. Destructuring    -> React aur API handling me bahut important
+   9. JSON keys/values mostly string hoti hain
+   ========================================================== */
